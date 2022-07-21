@@ -27,15 +27,7 @@
 #define ALARMS_SUPPORT    			// uncomment to enable support for Alarm Widget
 #define SD_SUPPORT        			// uncomment to enable support for SD Widget 
 #define SDLOGGEDATAGRAPH_SUPPORT  	// uncomment to enable support for Logged Data Widget
-#define DEBUG           			// uncomment to enable debugging - You should not need it !
-
-/*******************************
-  Apparently the SD Card doesn't work if the sketch's setup contains
-  pinMode(LED_BUILTIN,OUTPUT);
-  Even if LED_BUILTIN is not configured as OUTPUT
-  digitalWrite(LED_BUILTIN, ...);
-  works as expected.
-********************************/
+//#define DEBUG           			// uncomment to enable debugging - You should not need it !
 
 #if defined(DEBUG)
 #define PRINT(x)                    Serial.print(x)
