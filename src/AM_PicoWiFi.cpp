@@ -456,7 +456,9 @@ void AMController::readTime() {
   // subtract current millis to sync with time in Arduino
   _startTime -= millis() / 1000;
   PRINTLN("NNP Respose");
+  #ifdef DEBUG
   this->printTime(_startTime);
+  #endif
   PRINTLN();
 }
 
