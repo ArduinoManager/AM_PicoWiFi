@@ -65,7 +65,7 @@ WiFiServer server(80);
 int yellowLed = HIGH;
 
 #define BLUELEDPIN 15
-int blueLed = 255;
+int blueLed = 30;
 
 #define POTENTIOMETERPIN 26
 int pot;
@@ -105,10 +105,10 @@ void setup() {
 #if (defined(ALARMS_SUPPORT) || defined(SD_SUPPORT))
   Serial.println("Initializing SD card...");
 
-  SPI.setRX(SPI_MISO);    // MISO
+  SPI.setRX(SPI_MISO);
   SPI.setCS(SD_SELECT);
   SPI.setSCK(SPI_SCK);
-  SPI.setTX(SPI_MOSI);    // MOSI
+  SPI.setTX(SPI_MOSI);
 
   // see if the card is present and can be initialized:
   if (!SD.begin(SD_SELECT)) {
@@ -172,12 +172,11 @@ void setup() {
 
 #ifdef SDLOGGEDATAGRAPH_SUPPORT
 
-  if (amController.sdFileSize("TodayT") > 2000) {
+  if (amController.sdFileSize("TodayT") == 0 || amController.sdFileSize("TodayT") > 2000) {
     amController.sdPurgeLogData("TodayT");
     Serial.println("TodayT purged");
+    amController.sdLogLabels("TodayT", "T");
   }
-
-  amController.sdLogLabels("TodayT", "T");
 
 #endif
 
@@ -254,7 +253,6 @@ void processIncomingMessages(char *variable, char *value) {
     Serial.print("Command: ");
     Serial.println(value);
   }
-
 
 }
 
