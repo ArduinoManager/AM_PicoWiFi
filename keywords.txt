@@ -1,0 +1,82 @@
+###########################################
+# Syntax Coloring Map For PicoWiFi
+###########################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+AMController	KEYWORD1
+WiFi	KEYWORD1
+WiFi101	KEYWORD1
+Client	KEYWORD1
+Server	KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+doWork	KEYWORD2
+doSync	KEYWORD2
+processIncomingMessages	KEYWORD2
+processOutgoingMessages	KEYWORD2
+processAlarms	KEYWORD2
+deviceConnected	KEYWORD2
+deviceDisconnected	KEYWORD2
+
+
+loop	KEYWORD2
+writeMessage	KEYWORD2
+writeTripleMessage	KEYWORD2
+writeTxtMessage	KEYWORD2
+log	KEYWORD2
+logLn	KEYWORD2
+temporaryDigitalWrite	KEYWORD2
+sendFileList	KEYWORD2
+sendFile	KEYWORD2
+sdLogLabels	KEYWORD2
+sdLog	KEYWORD2
+sdSendLogData	KEYWORD2
+sdPurgeLogData	KEYWORD2
+sdFileSize	KEYWORD2
+setNTPServerAddress	KEYWORD2
+dumpAlarms	KEYWORD2
+printTime	KEYWORD2
+now	KEYWORD2
+
+status	KEYWORD2
+connect	KEYWORD2
+connectSSL	KEYWORD2
+write	KEYWORD2
+available	KEYWORD2
+read	KEYWORD2
+flush	KEYWORD2
+stop	KEYWORD2
+connected	KEYWORD2
+begin	KEYWORD2
+disconnect	KEYWORD2
+macAddress	KEYWORD2
+localIP	KEYWORD2
+subnetMask	KEYWORD2
+gatewayIP	KEYWORD2
+SSID	KEYWORD2
+BSSID		KEYWORD2
+RSSI	KEYWORD2
+encryptionType	KEYWORD2
+getResult	KEYWORD2
+getSocket	KEYWORD2
+WiFiClient	KEYWORD2
+WiFiServer	KEYWORD2
+WiFiSSLClient	KEYWORD2
+setTwitterKeys	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+AM_PicoWiFi	KEYWORD2
+AMController	KEYWORD2
+amController	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
