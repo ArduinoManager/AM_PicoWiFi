@@ -67,6 +67,8 @@ int yellowLed = HIGH;
 #define BLUELEDPIN 15
 int blueLed = 30;
 
+#define CONNECTIONLEDPIN 16
+
 #define POTENTIOMETERPIN 26
 int pot;
 
@@ -167,8 +169,8 @@ void setup() {
   pinMode(POTENTIOMETERPIN, INPUT);
 
   // Red LED OFF
-  //  pinMode(CONNECTIONPIN, OUTPUT);
-  //  digitalWrite(CONNECTIONPIN, connectionLed);
+  pinMode(CONNECTIONLEDPIN, OUTPUT);
+  digitalWrite(CONNECTIONLEDPIN, LOW);
 
 #ifdef SDLOGGEDATAGRAPH_SUPPORT
 
@@ -238,7 +240,7 @@ void processIncomingMessages(char *variable, char *value) {
   }
 
   if (strcmp(variable, "Push1") == 0) {
-    //amController.temporaryDigitalWrite(CONNECTIONPIN, LOW, 500);
+    amController.temporaryDigitalWrite(CONNECTIONLEDPIN, LOW, 500);
   }
 
   if (strcmp(variable, "Cmd_01") == 0) {
@@ -278,6 +280,7 @@ void processAlarms(char *alarm) {
 */
 void deviceConnected () {
   Serial.println("Device connected");
+  digitalWrite(CONNECTIONLEDPIN, HIGH);
 }
 
 /**
@@ -285,6 +288,7 @@ void deviceConnected () {
 */
 void deviceDisconnected () {
   Serial.println("Device disconnected");
+  digitalWrite(CONNECTIONLEDPIN, LOW);
 }
 
 /**
