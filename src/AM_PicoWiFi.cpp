@@ -410,6 +410,23 @@ void AMController::temporaryDigitalWrite(uint8_t pin, uint8_t value, unsigned lo
   digitalWrite(pin, previousValue);
 }
 
+float AMController::to_voltage(float adc_value, float vref, uint8_t resolution) {
+  const float conversion_factor = vref / (1 << resolution);
+  return adc_value * conversion_factor;
+}
+
+
+uint16_t AMController::avgAnalogRead(uint8_t pin, uint8_t samples) {
+    uint32_t sum = 0;
+
+    for (uint8_t i = 0; i < samples; i++) {
+        sum += analogRead(pin);  
+        delayMicroseconds(50);
+    }
+
+    return (uint16_t)(sum / samples);
+}
+
 // Time Management
 
 #ifdef ALARMS_SUPPORT

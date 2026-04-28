@@ -71,37 +71,37 @@ char *dtostrf(double val, signed char width, unsigned char prec, char *sout);
 #include <utility/Alarm.h>
 #include <utility/FileManager.h>
 
-#define NTP_PACKET_SIZE			    48
-#define MAX_ALARMS  			      5			// Maximum number of Alarms Widgets
+#define NTP_PACKET_SIZE			  48
+#define MAX_ALARMS  			  5			// Maximum number of Alarms Widgets
 #define ALARM_CHECK_INTERVAL	  60		// [s]
 
 #endif
 
-#define VARIABLELEN 			      14
-#define VALUELEN 				        14
+#define VARIABLELEN 			  14
+#define VALUELEN 				  14
 
 
 class AMController {
 
   private:
-    char						  _variable[VARIABLELEN + 1];
-    char 	   					_value[VALUELEN + 1];
-    bool	   					_var;
+    char				    _variable[VARIABLELEN + 1];
+    char 	   				_value[VALUELEN + 1];
+    bool	   				_var;
     int       				_idx;
     WiFiServer				*_server;
     WiFiClient				*_pClient;
-    bool						  _initialized;
+    bool					_initialized;
 
 #ifdef ALARMS_SUPPORT
-    String 						_alarmFile;
-    WiFiUDP						_udp;
+    String 					_alarmFile;
+    WiFiUDP					_udp;
     IPAddress 				_timeServerAddress;  // NTP Server Address
-    bool						  _sendNtpRequest;
-    byte 						  _packetBuffer[48]; 	// buffer to hold incoming and outgoing packets
-    unsigned long   	_lastAlarmCheck;
+    bool					_sendNtpRequest;
+    byte 					_packetBuffer[48]; 	// buffer to hold incoming and outgoing packets
+    unsigned long   	    _lastAlarmCheck;
     unsigned long			_startTime;
-    char              _id[8];
-    unsigned long     _time;
+    char                    _id[8];
+    unsigned long           _time;
 #endif
 
     /**
@@ -204,6 +204,8 @@ class AMController {
     void logLn(unsigned long msg);
 
     void temporaryDigitalWrite(uint8_t pin, uint8_t value, unsigned long ms);
+    float to_voltage(float adc_value, float vref, uint8_t resolution = 12);
+    uint16_t avgAnalogRead(uint8_t pin, uint8_t samples);
 
     void setNTPServerAddress(IPAddress address);
 
