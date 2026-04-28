@@ -38,8 +38,8 @@
 #endif
 
 
-#if !defined(ARDUINO_RASPBERRY_PI_PICO_W)
-#error THIS LIBRARY IS FOR RASPBERRY PICO W ONLY. FOR OTHER BOARDS RASPBERRY PICO W LIKE, PLEASE TRY TO CHANGE THIS CHECK OR CONTACT THE AUTHOR
+#if !defined(ARDUINO_RASPBERRY_PI_PICO_W) && !defined(ARDUINO_RASPBERRY_PI_PICO_2W)
+#error THIS LIBRARY IS FOR RASPBERRY PICO W AND PICO 2W ONLY. FOR OTHER BOARDS RASPBERRY PICO W LIKE, PLEASE TRY TO CHANGE THIS CHECK OR CONTACT THE AUTHOR
 #endif
 
 #include <WiFi.h>
@@ -204,7 +204,7 @@ class AMController {
     void logLn(unsigned long msg);
 
     void temporaryDigitalWrite(uint8_t pin, uint8_t value, unsigned long ms);
-    float to_voltage(float adc_value, float vref, uint8_t resolution = 12);
+    float to_voltage(float adc_value, float vref, uint8_t resolution = 10);
     uint16_t avgAnalogRead(uint8_t pin, uint8_t samples);
 
     void setNTPServerAddress(IPAddress address);
